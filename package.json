@@ -1,8 +1,11 @@
 {
 	"name": "shared-orm",
 	"version": "1.0.0",
-	"main": "index.js",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
 	"scripts": {
+		"build": "tsc",
+		"prepare": "npm run build",
 		"typeorm": "ts-node ./node_modules/typeorm/cli",
 		"migration:run": "ts-node ./node_modules/typeorm/cli migration:run -d ./ormconfig.ts",
 		"migration:generate": "ts-node ./node_modules/typeorm/cli migration:generate -d ./ormconfig.ts"
