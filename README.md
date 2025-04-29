@@ -1,98 +1,114 @@
-📦 Shared ORM Library (shared-orm)
+# 📦 Shared ORM Library (shared-orm)
 
 This repository contains the database models (entities), migrations, and database connection setup that will be used by the backend service.
-
 It is built using TypeORM and supports PostgreSQL.
-📚 Project Structure
 
+## 📚 Project Structure
+
+```
 shared-orm/
 ├── src/
-│ ├── entities/
-│ │ ├── product.entity.ts
-│ │ └── category.entity.ts
-│ ├── migrations/
-│ │ └── CreateInitialTables.ts
-│ └── db/
-│ └── database.connection.ts
+│   ├── entities/
+│   │   ├── product.entity.ts
+│   │   └── category.entity.ts
+│   ├── migrations/
+│   │   └── CreateInitialTables.ts
+│   └── db/
+│       └── database.connection.ts
 ├── ormconfig.ts
 ├── .env
 ├── package.json
 └── tsconfig.json
+```
 
-⚙️ Setup Instructions
+## ⚙️ Setup Instructions
 
-1. Clone the repository
+### 1. Clone the repository
 
+```bash
 git clone <repository-url>
 cd shared-orm
+```
 
-2. Install dependencies
+### 2. Install dependencies
 
+```bash
 npm install
+```
 
-3. Create .env file
+### 3. Create .env file
 
-Create a .env file in the root directory with the following content:
+Create a `.env` file in the root directory with the following content:
 
+```
 DB_HOST=localhost
 DB_PORT=5432
 DB_USERNAME=your_database_username
 DB_PASSWORD=your_database_password
 DB_DATABASE=mystore
+```
 
-Replace with your actual database credentials. 4. Set up the database
+Replace with your actual database credentials.
 
-Ensure PostgreSQL is running and the database mystore exists.
+### 4. Set up the database
+
+Ensure PostgreSQL is running and the database `mystore` exists.
 If not, create it manually:
 
+```bash
 createdb mystore
+```
 
-5. Run database migrations
+### 5. Run database migrations
 
+```bash
 npm run migration:run
+```
 
 This will create the products and categories tables in your database.
 
-📜 Available NPM Scripts
-Script Description
-npm run migration:run Run migrations to create tables
-npm run migration:generate Generate a new migration file based on entity changes
-npm run typeorm Run TypeORM CLI commands
+## 📜 Available NPM Scripts
 
-🏛️ Entities Overview
+| Script                       | Description                                           |
+| ---------------------------- | ----------------------------------------------------- |
+| `npm run migration:run`      | Run migrations to create tables                       |
+| `npm run migration:generate` | Generate a new migration file based on entity changes |
+| `npm run typeorm`            | Run TypeORM CLI commands                              |
 
-Product Entity (products)
-Field Type Description
-id integer Primary Key
-productName string Product Name
-description string Product Description
-price decimal Product Price
-stockQuantity integer Stock Quantity
-categoryId integer Foreign Key to Category
-createdAt timestamp Creation Date
-updatedAt timestamp Last Update Date
+## 🏛️ Entities Overview
 
-Category Entity (categories)
-Field Type Description
-id integer Primary Key
-categoryName string Category Name
-description string Category Description
-isActive boolean Is Active Category
-createdAt timestamp Creation Date
-updatedAt timestamp Last Update Date
+### Product Entity (products)
 
-🛠️ Technologies Used
+| Field         | Type      | Description             |
+| ------------- | --------- | ----------------------- |
+| id            | integer   | Primary Key             |
+| productName   | string    | Product Name            |
+| description   | string    | Product Description     |
+| price         | decimal   | Product Price           |
+| stockQuantity | integer   | Stock Quantity          |
+| categoryId    | integer   | Foreign Key to Category |
+| createdAt     | timestamp | Creation Date           |
+| updatedAt     | timestamp | Last Update Date        |
 
-    TypeScript
+### Category Entity (categories)
 
-    TypeORM
+| Field        | Type      | Description          |
+| ------------ | --------- | -------------------- |
+| id           | integer   | Primary Key          |
+| categoryName | string    | Category Name        |
+| description  | string    | Category Description |
+| isActive     | boolean   | Is Active Category   |
+| createdAt    | timestamp | Creation Date        |
+| updatedAt    | timestamp | Last Update Date     |
 
-    PostgreSQL
+## 🛠️ Technologies Used
 
-    dotenv
+-  TypeScript
+-  TypeORM
+-  PostgreSQL
+-  dotenv
 
-📢 Notes
+## 📢 Notes
 
-    This repository only contains shared ORM models, migrations, and DB connection logic.
-
-    It is meant to be imported into the backend NestJS project.
+-  This repository only contains shared ORM models, migrations, and DB connection logic.
+-  It is meant to be imported into the backend NestJS project.
